@@ -10,6 +10,7 @@
 		content,
 		write_date
 		from tbl_board
+		order by board_no desc
 	</select>
 
 	<!--등록 -->
@@ -35,4 +36,11 @@
 		delete from tbl_board
 		where board_no = #{boardNo}
 	</delete>
+
+	<!-- 단건 조회 -->
+	<select id="selectOne" parameterType="int">
+		select *
+		from tbl_board
+		where board_no = #{boardNo}
+	</select>
 </mapper>
