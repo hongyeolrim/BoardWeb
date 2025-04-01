@@ -18,6 +18,9 @@ public class BoardVO {
 	private String writer;
 	private Date writeDate;
 
+	public BoardVO() {
+	}
+
 	public BoardVO(String title, String content, String writer) {
 		this.title = title;
 		this.content = content;

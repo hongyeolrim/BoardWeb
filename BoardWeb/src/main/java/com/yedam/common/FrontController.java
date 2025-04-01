@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.yedam.control.AddBoardControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
+import com.yedam.control.DeleteBoardControl;
+import com.yedam.control.DeleteFormControl;
+import com.yedam.control.ModifyBoardControl;
+import com.yedam.control.ModifyFormControl;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -29,6 +33,11 @@ public class FrontController extends HttpServlet {
 		map.put("/board.do", new BoardControl());
 		map.put("/boardList.do", new BoardListControl());
 		map.put("/addBoard.do", new AddBoardControl());
+		map.put("/modifyForm.do", new ModifyFormControl());
+		map.put("/modifyBoard.do", new ModifyBoardControl());
+		map.put("/deleteForm.do", new DeleteFormControl());
+		map.put("/deleteBoard.do", new DeleteBoardControl());
+
 	}
 
 	@Override

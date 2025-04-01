@@ -11,24 +11,21 @@ import org.apache.ibatis.session.SqlSession;
 import com.yedam.common.Control;
 import com.yedam.common.DataSource;
 import com.yedam.mapper.BoardMapper;
-import com.yedam.vo.BoardVO;
 
-public class BoardControl implements Control {
+public class DeleteBoardControl implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		try (SqlSession sqlSession = DataSource.getInstance().openSession()) {
+		String bno = req.getParameter("bno");
+
+		try (SqlSession sqlSession = DataSource.getInstance().openSession(true)) {
 			BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
-			
-			
-			String bno = req.getParameter("bno");
-			String page = req.getParameter("page");
-			
-			
-			BoardVO board = mapper.selectOne(Integer.parseInt(bno));
-			req.setAttribute("board", board);
-			req.setAttribute("page", page);
-			req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+			int r = mapper.deleteBoard(Integer.parseInt(bno));
+			if (r > 0) {
+				resp.sendRedirect("boardList.do");
+			} else {
+				System.out.println("삭제 오류");
+			}
 		}
 	}
 }
