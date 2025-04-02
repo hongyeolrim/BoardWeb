@@ -12,6 +12,12 @@
 	<logger name="com.yedam.mapper.BoardMapper">
 		<level value="debug" />
 	</logger>
+
+	<logger name="com.yedam.mapper.MemberMapper">
+		<level value="debug" />
+	</logger>
+
+
 	<root level="error">
 		<appender-ref ref="stdout" />
 	</root>

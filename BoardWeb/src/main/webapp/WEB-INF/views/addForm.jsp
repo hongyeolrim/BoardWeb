@@ -13,7 +13,8 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><input class="form-control" type="text" name="writer"></td>
+			<td>${sessionScope.logId}<input class="form-control" type="hidden"
+				name="writer" value="${sessionScope.logId}"></td>
 		</tr>
 		<tr>
 			<th>본문</th>

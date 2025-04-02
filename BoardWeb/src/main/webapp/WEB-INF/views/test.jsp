@@ -17,7 +17,7 @@
 	//java영역이기 때문에 여기서도 이 코드를 쓸 수는 있음
 	SqlSession sqlsession = DataSource.getInstance().openSession();
 	BoardMapper mapper = sqlsession.getMapper(BoardMapper.class);
-	List<BoardVO> list = mapper.selectBoard();
+	List<BoardVO> list = mapper.selectBoard(null);
 	%>
 	<h3>글 목록</h3>
 	<ul>
