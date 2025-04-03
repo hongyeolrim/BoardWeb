@@ -27,11 +27,18 @@ public class LoginControl implements Control {
 
 		if (mvo == null) {
 			req.setAttribute("msg", "아이디와 비밀번호를 확인하세요.");
-			req.getRequestDispatcher("WEB-INF/views/loginForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("common/loginForm.tiles").forward(req, resp);
 		} else {
 			HttpSession session = req.getSession();
 			session.setAttribute("logId", id);
-			resp.sendRedirect("main.do");
+			session.setAttribute("img", mvo.getImages());
+//			resp.sendRedirect("main.do");
+			
+			if(mvo.getResponsibility().equals("User")) {
+				req.getRequestDispatcher("common/main.tiles").forward(req, resp);
+			}else if(mvo.getResponsibility().equals("Admin")) {
+				req.getRequestDispatcher("manager/main.tiles").forward(req, resp);
+			}
 		}
 	}
 }

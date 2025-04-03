@@ -145,7 +145,7 @@ to {
 	String msg = (String) request.getAttribute("msg");
 	%>
 
-	<h2>Modal Login Form</h2>
+	<h2>로그인 화면😎</h2>
 
 	<button onclick="document.getElementById('id01').style.display='block'"
 		style="width: auto;">Login</button>

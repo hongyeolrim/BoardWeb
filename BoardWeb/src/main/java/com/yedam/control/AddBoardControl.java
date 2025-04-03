@@ -20,7 +20,7 @@ public class AddBoardControl implements Control {
 		try (SqlSession sqlSession = DataSource.getInstance().openSession(true)) {
 			req.setCharacterEncoding("UTF-8");
 			if (req.getMethod().equals("GET")) {
-				req.getRequestDispatcher("/WEB-INF/views/addForm.jsp").forward(req, resp);
+				req.getRequestDispatcher("common/addForm.tiles").forward(req, resp);
 			} else if (req.getMethod().equals("POST")) {
 				String title = req.getParameter("title");
 				String writer = req.getParameter("writer");

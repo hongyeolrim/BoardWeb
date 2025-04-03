@@ -7,4 +7,7 @@ import com.yedam.vo.MemberVO;
 public interface MemberService {
 	// 로그인
 	MemberVO login(String id, String pw);
+
+	// 회원등록
+	boolean addMember(MemberVO member);
 }

@@ -3,10 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<jsp:include page="includes/header.jsp" />
-
-
-
 <h3>게시글 상세보기</h3>
 <form action="modifyForm.do">
     <input type="hidden" name="bno" value="${board.boardNo }"> <input type="hidden" name="page" value="${page }">
@@ -41,8 +37,10 @@
                 </c:choose>
             </td>
         </tr>
+        <tr>
         <c:if test="${msg != null }" />
-        <span style="color: red">${msg }</span>
+        <td style="color: red" colspan="6">${msg }</td>
+        </tr>
     </table>
 </form>
 <a href='boardList.do'>게시글 목록으로 이동</a>
@@ -56,4 +54,3 @@
         location.href = 'deleteForm.do?bno=${board.boardNo}'; //삭제 화면으로 이동
     }
 </script>
-<jsp:include page="includes/footer.jsp" />

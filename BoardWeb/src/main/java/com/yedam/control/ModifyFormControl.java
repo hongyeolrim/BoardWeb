@@ -34,11 +34,11 @@ public class ModifyFormControl implements Control {
 			String logId = (String) session.getAttribute("logId");
 
 			if (logId != null && logId.equals(board.getWriter())) {
-				req.getRequestDispatcher("/WEB-INF/views/modifyForm.jsp").forward(req, resp);
+				req.getRequestDispatcher("common/modifyForm.tiles").forward(req, resp);
 
 			} else {
 				req.setAttribute("msg", "권한이 없지롱~헤헿");
-				req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+				req.getRequestDispatcher("common/board.tiles").forward(req, resp);
 			}
 
 		}

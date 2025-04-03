@@ -21,6 +21,7 @@ import com.yedam.control.LogoutControl;
 import com.yedam.control.MainControl;
 import com.yedam.control.ModifyBoardControl;
 import com.yedam.control.ModifyFormControl;
+import com.yedam.control.SignFormControl;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -45,6 +46,8 @@ public class FrontController extends HttpServlet {
 		map.put("/login.do", new LoginControl());
 		map.put("/logout.do", new LogoutControl());
 		map.put("/main.do", new MainControl());
+		map.put("/signForm.do", new SignFormControl());
+		map.put("/signUp.do", new SignFormControl());
 	}
 
 	@Override

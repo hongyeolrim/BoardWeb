@@ -23,7 +23,7 @@ public class DeleteFormControl implements Control {
 			String bno = req.getParameter("bno");
 			BoardVO board = mapper.selectOne(Integer.parseInt(bno));
 			req.setAttribute("board", board);
-			req.getRequestDispatcher("/WEB-INF/views/deleteForm.jsp").forward(req, resp);
+			req.getRequestDispatcher("common/deleteForm.tiles").forward(req, resp);
 		}
 	}
 }

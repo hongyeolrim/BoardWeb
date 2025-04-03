@@ -28,7 +28,7 @@ public class BoardControl implements Control {
 			BoardVO board = mapper.selectOne(Integer.parseInt(bno));
 			req.setAttribute("board", board);
 			req.setAttribute("page", page);
-			req.getRequestDispatcher("/WEB-INF/views/board.jsp").forward(req, resp);
+			req.getRequestDispatcher("common/board.tiles").forward(req, resp);
 		}
 	}
 }
