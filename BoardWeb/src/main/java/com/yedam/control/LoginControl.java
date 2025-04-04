@@ -24,6 +24,7 @@ public class LoginControl implements Control {
 		// 서비스객체 처리
 		MemberService svc = new MemberServiceImpl();
 		MemberVO mvo = svc.login(id, pw);
+		System.out.println(req.getRemoteHost());
 
 		if (mvo == null) {
 			req.setAttribute("msg", "아이디와 비밀번호를 확인하세요.");
