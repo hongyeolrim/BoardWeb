@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.AddBoardControl;
+import com.yedam.control.AddReplyControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.DeleteBoardControl;
@@ -22,6 +23,8 @@ import com.yedam.control.LogoutControl;
 import com.yedam.control.MainControl;
 import com.yedam.control.ModifyBoardControl;
 import com.yedam.control.ModifyFormControl;
+import com.yedam.control.RemoveReplyControl;
+import com.yedam.control.ReplyListControl;
 import com.yedam.control.SignFormControl;
 
 @WebServlet("*.do")
@@ -50,6 +53,9 @@ public class FrontController extends HttpServlet {
 		map.put("/signForm.do", new SignFormControl());
 		map.put("/signUp.do", new SignFormControl());
 		map.put("/javascript.do", new JSControl());
+		map.put("/replyList.do", new ReplyListControl());
+		map.put("/removeReply.do", new RemoveReplyControl());
+		map.put("/addReply.do", new AddReplyControl());
 	}
 
 	@Override

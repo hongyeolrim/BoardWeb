@@ -43,8 +43,50 @@
         </tr>
     </table>
 </form>
-<a href='boardList.do'>게시글 목록으로 이동</a>
+
+<!-- 댓글 관련 -->
+<style>
+div.reply span {
+	display: inline-block;
+}
+
+div.reply ul {
+	list-style-type: none;
+}
+
+.content {
+	margin-top: 20px;
+}
+</style>
+
+<div class="container reply">
+
+    <!-- 등록 -->
+    <div class="header">
+        <input class="col-sm-8" id="reply">
+        <button class="col-sm-2 btn btn-outline-secondary rounded-pill btn-sm addReply">댓글 등록✏️</button>
+    </div>
+    
+    <!-- 목록 -->
+    <div class="content">
+        <ul>
+            <li>
+            <span class="col-sm-2">글번호🌷</span> 
+            <span class="col-sm-5">내용💬</span> 
+            <span class="col-sm-2">작성자👤</span> 
+            <span class="col-sm-2">삭제🗑️</span>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<p><a href='boardList.do'>게시글 목록으로 이동</a></p>
 <script>
+    const bno = "${board.boardNo}";
+    const replyer = "${logId}";
+    
     //삭제 버튼에 이벤트 등록
     const deleteBtn = document.querySelector('button.btn.btn-danger');
     deleteBtn.addEventListener('click', deleteFnc);
@@ -54,3 +96,5 @@
         location.href = 'deleteForm.do?bno=${board.boardNo}'; //삭제 화면으로 이동
     }
 </script>
+<script src="js/boardService.js"></script>
+<script src="js/board1.js"></script>
