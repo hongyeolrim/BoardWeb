@@ -57,6 +57,42 @@ div.reply ul {
 .content {
 	margin-top: 20px;
 }
+
+  /* 페이지네이션 전체 - 왼쪽 정렬 유지 */
+    .pagination {
+        margin-top: 20px;
+        padding-left: 0;
+    }
+
+    /* 각 버튼 */
+    .page-link {
+        background-color: #E6E6FA; /* 연보라 기본 */
+        border: 1px solid #d8d8d8;
+        color: #444;
+        font-weight: bold;
+        border-radius: 0; /* 네모 스타일 */
+        padding: 6px 12px;
+        transition: all 0.2s ease;
+    }
+
+    .page-link:hover {
+        background-color: #D8BFD8; /* 진한 연보라 hover */
+        color: #222;
+    }
+
+    /* 활성화된 페이지 */
+    .page-item.active .page-link {
+        background-color: #C8A2C8;
+        color: white;
+        border-color: #b07fb0;
+    }
+
+    /* 비활성 (disabled) */
+    .page-item.disabled .page-link {
+        background-color: #f5f5f5;
+        color: #aaa;
+        cursor: not-allowed;
+    }
 </style>
 
 <div class="container reply">
@@ -79,6 +115,16 @@ div.reply ul {
         </ul>
     </div>
 
+    <!-- 페이징 -->
+    <nav aria-label="...">
+        <ul class="pagination pagination-sm">
+            <li class="page-item disabled"><a class="page-link">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+    </nav>
 </div>
 
 

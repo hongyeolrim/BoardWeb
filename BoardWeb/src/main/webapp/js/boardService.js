@@ -5,8 +5,8 @@
 const svc = {
 	// 목록
 	name: "홍길동",
-	replyList: function(bno, successCallback, errorCallback) {
-		fetch('replyList.do?bno=' + bno)
+	replyList: function(search={bno, page}, successCallback, errorCallback) {
+		fetch('replyList.do?bno=' + search.bno + '&page=' + search.page)
 			.then(result => result.json())
 			.then(successCallback)
 			.catch(errorCallback)
@@ -26,5 +26,13 @@ const svc = {
 			.then(result => result.json())
 			.then(successCallback)
 			.catch(errorCallback)
-	} // 마지막 함수라 쉼표(,) 없음!
+	},
+	
+	// 페이지 계산
+	pagingList(bno, successCallback, errorCallback) {
+			fetch('replyCount.do?bno=' + bno)
+				.then(result => result.json())
+				.then(successCallback)
+				.catch(errorCallback)
+		}
 }; // 객체 닫고 ; 찍기

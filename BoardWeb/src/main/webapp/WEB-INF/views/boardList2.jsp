@@ -4,6 +4,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
 <style>
 /* 전체 pagination 버튼 스타일 */
 .page-link {
@@ -75,7 +80,7 @@
         </div>
     </div>
 </form>
-<table class="table">
+<table class="display" id="example" style="width:100%">
     <thead>
         <tr>
             <th>글번호</th>
@@ -95,38 +100,8 @@
         </c:forEach>
     </tbody>
 </table>
-<nav aria-label="...">
-    <ul class="pagination">
 
-        <!-- 이전 10개 페이지 여부 -->
-        <c:choose>
-            <c:when test="${paging.prev }">
-                <li class="page-item"><a class="page-link" href="boardList.do?page=${paging.startPage - 1 }">Previous</a></li>
-            </c:when>
-            <c:otherwise>
-                <li class="page-item disabled"><span class="page-link">Previous</span></li>
-            </c:otherwise>
-        </c:choose>
-
-        <c:forEach var="p" begin="${paging.startPage }" end="${paging.endPage }">
-            <c:choose>
-                <c:when test="${paging.currentPage  == p}">
-                    <li class="page-item active" aria-current="page"><span class="page-link">${p }</span></li>
-                </c:when>
-                <c:otherwise>
-                    <li class="page-item"><a class="page-link" href="boardList.do?page=${p }&searchCondition=${searchCondition }&keyword=${keyword }">${p }</a></li>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
-
-        <!-- 이후 10개 페이지 여부 -->
-        <c:choose>
-            <c:when test="${paging.next }">
-                <li class="page-item"><a class="page-link" href="boardList.do?page=${paging.endPage + 1}">Next</a></li>
-            </c:when>
-            <c:otherwise>
-                <li class="page-item disabled"><span class="page-link">Next</span></li>
-            </c:otherwise>
-        </c:choose>
-    </ul>
-</nav>
+<!-- paging 처리 -->
+<script>
+    new DataTable('#example');
+</script>
