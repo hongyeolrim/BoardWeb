@@ -11,11 +11,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.yedam.control.AddBoardControl;
+import com.yedam.control.AddEventControl;
 import com.yedam.control.AddReplyControl;
 import com.yedam.control.BoardControl;
 import com.yedam.control.BoardListControl;
 import com.yedam.control.DeleteBoardControl;
 import com.yedam.control.DeleteFormControl;
+import com.yedam.control.EventFormControl;
+import com.yedam.control.EventListControl;
 import com.yedam.control.JSControl;
 import com.yedam.control.LoginControl;
 import com.yedam.control.LoginFormControl;
@@ -58,6 +61,9 @@ public class FrontController extends HttpServlet {
 		map.put("/removeReply.do", new RemoveReplyControl());
 		map.put("/addReply.do", new AddReplyControl());
 		map.put("/replyCount.do", new ReplyCountControl());
+		map.put("/eventForm.do", new EventFormControl());
+		map.put("/addEvent.do", new AddEventControl());
+		map.put("/eventList.do", new EventListControl());
 	}
 
 	@Override

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yedam.mapper.EventMapper">
+	<!-- 일정 목록 -->
+	<select id="getALLEvents" resultType="event">
+		SELECT event_id,
+		       title,
+		       start_date AS startDate,
+		       end_date AS endDate
+		FROM   tbl_event  
+	</select>
+
+	<!-- 일정 등록 -->
+	<insert id="insertEvent" parameterType="event">
+	<selectKey keyProperty="eventId" resultType="int" order="BEFORE">
+	SELECT event_seq.NEXTVAL
+	FROM   dual
+	</selectKey>
+		INSERT INTO tbl_event (
+		       event_id,
+		       title,
+		       start_date,
+		       end_date
+		)
+		VALUES (
+		  #{eventId},
+		  #{title},
+		  #{startDate},
+		  #{endDate}
+		)
+	</insert>
+	
+	<!-- 일정 삭제 -->
+	<delete id="deleteEvent" parameterType="int">
+		DELETE FROM tbl_event
+		WHERE  event_id = #{eventId} 
+	</delete>
+	
+</mapper>
