@@ -38,4 +38,28 @@
 		WHERE  event_id = #{eventId} 
 	</delete>
 	
+	<!-- chart -->
+	<select id="selectWriter" resultType="map">
+	select user_name as "memberName",
+	       b.writer as "writer", 
+	       count(1) as "cnt"
+	from tbl_board b
+	join tbl_member m
+	on b.writer = m.user_id
+	group by user_name, b.writer
+	</select>
+	
+	<!-- log 정보 생성 -->
+	<insert id="insertLogging" parameterType="map">
+	INSERT INTO tbl_logging(
+    log_id,
+    req_path,
+    req_host
+    )
+    VALUES (
+    logging_seq.NEXTVAL,
+    #{page},
+    #{host}
+    )
+	</insert>
 </mapper>
